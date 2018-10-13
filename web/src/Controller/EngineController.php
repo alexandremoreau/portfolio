@@ -9,15 +9,21 @@
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class EngineController
+class EngineController extends AbstractController
 {
+
+    /**
+     * @Route("/engine/number")
+     */
     public function number()
     {
         $number = random_int(0, 100);
 
-        return new Response(
-            '<html><body>Lucky number: '.$number.'</body></html>'
-        );
+        return $this->render('engine/number.html.twig', [
+            'number' => $number,
+        ]);
     }
 }
