@@ -1,8 +1,8 @@
 {
   "name": "alexandremoreau/portfolio",
-  "description": "Mon site",
-  "minimum-stability": "stable",
-  "license": "proprietary",
+  "description": "Mon site personnel",
+  "minimum-stability": "dev",
+  "license": "MIT",
   "authors": [
     {
       "name": "Alexandre Moreau",
@@ -10,6 +10,51 @@
     }
   ],
   "require": {
-    "smarty/smarty": "3.1.x-dev"
+    "php": "^7.1.3",
+    "symfony/console": "^4.1",
+    "symfony/flex": "^1.0",
+    "symfony/framework-bundle": "^4.1",
+    "symfony/lts": "^4@dev",
+    "symfony/yaml": "^4.1"
+  },
+  "require-dev": {
+    "symfony/dotenv": "^4.1"
+  },
+  "config": {
+    "preferred-install": {
+      "*": "dist"
+    },
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "App\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "auto-scripts": {
+      "cache:clear": "symfony-cmd",
+      "assets:install %PUBLIC_DIR%": "symfony-cmd"
+    },
+    "post-install-cmd": [
+      "@auto-scripts"
+    ],
+    "post-update-cmd": [
+      "@auto-scripts"
+    ]
+  },
+  "conflict": {
+    "symfony/symfony": "*"
+  },
+  "extra": {
+    "symfony": {
+      "id": "",
+      "allow-contrib": false
+    }
   }
 }
