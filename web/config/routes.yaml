@@ -1,0 +1,7 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+app_engine_number:
+  path: /engine/number
+  controller: App\Controller\EngineController::number
